@@ -11,7 +11,7 @@ import SwiftUI
 struct Audio_ShootoutApp: App {
     var body: some Scene {
         WindowGroup {
-            UploadView()
+            ContentView()
                 .frame(minWidth: 600, minHeight: 400)
         }
     }

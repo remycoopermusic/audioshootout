@@ -16,6 +16,7 @@
 		8B52B88A29AA7E1400CCEEE1 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88929AA7E1400CCEEE1 /* WaveformView.swift */; };
 		8B52B88C29AA7E2200CCEEE1 /* ManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */; };
 		8B52B89029AA89F500CCEEE1 /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */; };
+		8B52B89229AAA12F00CCEEE1 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B89129AAA12F00CCEEE1 /* FileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8B52B88929AA7E1400CCEEE1 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 		8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerView.swift; sourceTree = "<group>"; };
 		8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
+		8B52B89129AAA12F00CCEEE1 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */,
+				8B52B89129AAA12F00CCEEE1 /* FileManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				8B52B88829AA7E0700CCEEE1 /* TracklistView.swift in Sources */,
 				8B52B87729AA777900CCEEE1 /* Audio_ShootoutApp.swift in Sources */,
 				8B52B89029AA89F500CCEEE1 /* FileImporter.swift in Sources */,
+				8B52B89229AAA12F00CCEEE1 /* FileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
