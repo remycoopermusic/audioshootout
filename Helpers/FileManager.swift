@@ -1,18 +1,22 @@
-import Foundation
+import SwiftUI
+import Combine
 
 class FileManager: ObservableObject {
-    @Published var files: [URL] = []
-    let maxFiles = 8
+    @Published var audioFiles: [URL] = []
+    var maxFiles = 8
     
-    func addFile(_ file: URL) {
-        if files.count < maxFiles {
-            files.append(file)
-        }
-    }
-    
-    func removeFile(at index: Int) {
-        if index >= 0 && index < files.count {
-            files.remove(at: index)
+    func chooseFiles(completion: @escaping () -> Void) {
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = true
+        openPanel.canChooseDirectories = false
+        openPanel.allowedContentTypes = [.audio]
+        
+        openPanel.begin { response in
+            if response == .OK {
+                let urls = openPanel.urls.prefix(self.maxFiles - self.audioFiles.count)
+                self.audioFiles.append(contentsOf: urls)
+            }
+            completion()
         }
     }
 }

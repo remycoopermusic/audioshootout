@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct UploadView: View {
+    @StateObject var fileManager = FileManager()
+
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    // Code to be executed when the button is pressed
+                    self.fileManager.chooseFiles {
+                        // Completion handler called after files have been chosen
+                    }
                 }) {
                     Image(systemName: "folder.fill")
                         .font(.system(size: 24))
@@ -27,19 +31,29 @@ struct UploadView: View {
 
             Spacer()
 
-            VStack {
-                Image(systemName: "doc.on.clipboard.fill")
-                    .font(.system(size: 72))
-                Text("DROP AUDIO FILES HERE")
-                    .font(.title)
-                    .foregroundColor(.gray)
-                    .padding(.top)
+            if fileManager.audioFiles.isEmpty {
+                VStack {
+                    Image(systemName: "doc.on.clipboard.fill")
+                        .font(.system(size: 72))
+                    Text("DROP AUDIO FILES HERE")
+                        .font(.title)
+                        .foregroundColor(.gray)
+                        .padding(.top)
 
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                // Show selected files
+                List {
+                    ForEach(fileManager.audioFiles, id: \.self) { file in
+                        Text(file.lastPathComponent)
+                    }
+                }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
+
 
 
 

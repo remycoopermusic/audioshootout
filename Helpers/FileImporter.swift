@@ -22,6 +22,7 @@ struct FileImporter: NSViewControllerRepresentable {
         }
         return NSViewController()
     }
+
     
     func updateNSViewController(_ nsViewController: NSViewController, context: Context) {}
     
