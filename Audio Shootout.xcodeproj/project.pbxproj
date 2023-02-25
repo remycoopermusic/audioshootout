@@ -52,8 +52,6 @@
 		8B52B86A29AA777900CCEEE1 = {
 			isa = PBXGroup;
 			children = (
-				8B52B88D29AA89B400CCEEE1 /* Views */,
-				8B52B88E29AA89D400CCEEE1 /* Helpers */,
 				8B52B87529AA777900CCEEE1 /* Audio Shootout */,
 				8B52B87429AA777900CCEEE1 /* Products */,
 			);
@@ -70,6 +68,8 @@
 		8B52B87529AA777900CCEEE1 /* Audio Shootout */ = {
 			isa = PBXGroup;
 			children = (
+				8B52B88D29AA89B400CCEEE1 /* Views */,
+				8B52B88E29AA89D400CCEEE1 /* Helpers */,
 				8B52B87629AA777900CCEEE1 /* Audio_ShootoutApp.swift */,
 				8B52B87A29AA777B00CCEEE1 /* Assets.xcassets */,
 				8B52B87F29AA777B00CCEEE1 /* Audio_Shootout.entitlements */,
