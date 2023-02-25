@@ -73,10 +73,12 @@ struct UploadView: View {
                     FileUploader.uploadFiles(fileManager: fileManager, isUploading: $isUploading) {_ in
                         // Optional completion code
                     }
+                    
+                    NavigationLink(destination: ContentView(), isActive: $isUploading) {
+                        EmptyView()
+                    }
                 }
                 .padding()
-
-
             }
 
             Spacer()
@@ -85,6 +87,7 @@ struct UploadView: View {
     }
     
 }
+
 
 
 struct UploadView_Previews: PreviewProvider {

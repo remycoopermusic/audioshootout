@@ -19,11 +19,13 @@ struct Audio_ShootoutApp: App {
             } else {
                 UploadView(fileManager: fileManager, isUploading: $appState.isUploading)
                     .environmentObject(appState)
+                    .environmentObject(fileManager) // Add this line
                     .frame(minWidth: 600, minHeight: 400)
             }
         }
     }
 }
+
 
 class AppState: ObservableObject {
     @Published var audioFiles: [URL] = []

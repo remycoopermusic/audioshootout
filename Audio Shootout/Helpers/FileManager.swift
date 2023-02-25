@@ -15,6 +15,7 @@ class FileManager: NSObject, ObservableObject {
             if response == .OK {
                 let urls = openPanel.urls.prefix(self.maxFiles - self.audioFiles.count)
                 self.audioFiles.append(contentsOf: urls)
+                self.printFilesLocation()
             }
             completion()
         }
@@ -22,5 +23,14 @@ class FileManager: NSObject, ObservableObject {
     
     func removeFile(at index: IndexSet) {
         audioFiles.remove(atOffsets: index)
+    }
+    
+    func printFilesLocation() {
+        for file in audioFiles {
+            let bookmarkData = try! file.bookmarkData()
+            var isStale = false
+            let url = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+            print("File location: \(url)")
+        }
     }
 }
