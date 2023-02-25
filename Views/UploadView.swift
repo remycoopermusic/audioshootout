@@ -70,74 +70,21 @@ struct UploadView: View {
                      }
                 }
                 Button("Continue") {
-                    uploadFiles()
+                    FileUploader.uploadFiles(fileManager: fileManager, isUploading: $isUploading) {_ in
+                        // Optional completion code
+                    }
                 }
                 .padding()
+
+
             }
 
             Spacer()
         }
-        .navigationTitle("")
-        .background(
-            NavigationLink(
-                destination: ContentView(),
-                isActive: $isUploading
-            ) {
-                EmptyView()
-            }
-        )
-    }
-
-    private func uploadFiles() {
-        let totalBytes = fileManager.audioFiles.map({try! $0.resourceValues(forKeys: [.fileSizeKey]).fileSize!}).reduce(0, +)
-        var uploadedBytes = 0
-
-        let progressPublisher = PassthroughSubject<Double, Never>()
-        let cancellable = progressPublisher
-            .throttle(for: 0.5, scheduler: RunLoop.main, latest: true)
-            .sink(receiveValue: { progress in
-                self.progress = progress
-            })
-
-        let group = DispatchGroup()
-
-        DispatchQueue.global(qos: .background).async {
-            fileManager.audioFiles.forEach { file in
-                let data = try! Data(contentsOf: file)
-                // Simulating file upload
-                let dataLength = Double(data.count)
-                let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-                var uploaded = 0.0
-                
-                group.enter()
-                
-                for i in 1...10 {
-                    RunLoop.main.run(until: Date()+0.01)
-                    uploaded += dataLength/10
-                    uploadedBytes += Int(uploaded)
-                    let uploadProgress = Double(uploadedBytes) / Double(totalBytes)
-                    progressPublisher.send(uploadProgress)
-                    print("Uploaded \(i * 10)%")
-                }
-                
-                timer.upstream.connect().cancel()
-                group.leave()
-            }
             
-            group.notify(queue: .main) {
-                cancellable.cancel()
-                DispatchQueue.main.async {
-                    isUploading = true
-                    print("isUploading set to true")
-                }
-            }
-        }
     }
-
     
 }
-
-
 
 
 struct UploadView_Previews: PreviewProvider {

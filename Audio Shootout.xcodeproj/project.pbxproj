@@ -18,6 +18,7 @@
 		8B52B89029AA89F500CCEEE1 /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */; };
 		8B52B89229AAA12F00CCEEE1 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B89129AAA12F00CCEEE1 /* FileManager.swift */; };
 		8B52B89429AAB9BA00CCEEE1 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B89329AAB9BA00CCEEE1 /* AudioFile.swift */; };
+		8B52B89629AABFD600CCEEE1 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B89529AABFD600CCEEE1 /* FileUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
 		8B52B89129AAA12F00CCEEE1 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		8B52B89329AAB9BA00CCEEE1 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
+		8B52B89529AABFD600CCEEE1 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */,
 				8B52B89129AAA12F00CCEEE1 /* FileManager.swift */,
 				8B52B89329AAB9BA00CCEEE1 /* AudioFile.swift */,
+				8B52B89529AABFD600CCEEE1 /* FileUploader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				8B52B87929AA777900CCEEE1 /* ContentView.swift in Sources */,
 				8B52B88829AA7E0700CCEEE1 /* TracklistView.swift in Sources */,
 				8B52B87729AA777900CCEEE1 /* Audio_ShootoutApp.swift in Sources */,
+				8B52B89629AABFD600CCEEE1 /* FileUploader.swift in Sources */,
 				8B52B89029AA89F500CCEEE1 /* FileImporter.swift in Sources */,
 				8B52B89229AAA12F00CCEEE1 /* FileManager.swift in Sources */,
 			);
