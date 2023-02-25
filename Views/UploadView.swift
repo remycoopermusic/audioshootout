@@ -6,59 +6,26 @@
 //
 
 import SwiftUI
-import AppKit
-
-class FileImporter: NSObject, UIViewControllerRepresentable {
-    var onCompletion: ([URL]) -> Void = { _ in }
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    func updateNSViewController(_ nsViewController: NSViewController, context: Context) {}
-
-    func makeNSViewController(context: Context) -> NSViewController {
-        let openPanel = NSOpenPanel()
-        openPanel.allowedFileTypes = ["public.audio"]
-        openPanel.canChooseFiles = true
-        openPanel.canChooseDirectories = false
-        openPanel.allowsMultipleSelection = true
-        openPanel.prompt = "Select"
-        openPanel.begin { result in
-            if result == NSApplication.ModalResponse.OK {
-                self.onCompletion(openPanel.urls)
-            }
-        }
-        return NSViewController()
-    }
-
-    class Coordinator: NSObject {
-        let parent: FileImporter
-
-        init(_ parent: FileImporter) {
-            self.parent = parent
-        }
-    }
-}
-
 
 struct UploadView: View {
-    @State private var audioFiles: [URL] = []
+    @State private var selectedFiles: [URL] = []
+    @State private var fileImporter: FileImporter? = nil
 
     var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    let fileImporter = FileImporter()
-                    fileImporter.onCompletion = { urls in
-                        self.audioFiles = urls
-                        if !urls.isEmpty {
-                            // Transition to ContentView if at least one file was selected
-                            NavigationManager.shared.transition(to: .contentView)
-                        }
-                    }
-                    let viewController = NSHostingController(rootView: fileImporter)
-                    NSApplication.shared.keyWindow?.contentViewController?.presentAsSheet(viewController)
+                    self.fileImporter = FileImporter()
+                    self.fileImporter?.onCompletion = { urls in
+                        self.selectedFiles = urls }
+                    let controller = NSHostingController(rootView: self.fileImporter!)
+                    let sheet = NSWindow(
+                        contentRect: controller.view.frame,
+                        styleMask: [.titled, .closable],
+                        backing: .buffered,
+                        defer: false)
+                    sheet.contentView = controller.view
+                    NSApp.mainWindow?.beginSheet(sheet, completionHandler: nil)
                 }) {
                     Image(systemName: "folder.fill")
                         .font(.system(size: 24))
@@ -73,20 +40,37 @@ struct UploadView: View {
 
             Spacer()
 
-            VStack {
-                Image(systemName: "doc.on.clipboard.fill")
-                    .font(.system(size: 72))
-                Text("DROP AUDIO FILES HERE")
-                    .font(.title)
-                    .foregroundColor(.gray)
-                    .padding(.top)
+            if selectedFiles.isEmpty {
+                VStack {
+                    Image(systemName: "doc.on.clipboard.fill")
+                        .font(.system(size: 72))
+                    Text("DROP AUDIO FILES HERE")
+                        .font(.title)
+                        .foregroundColor(.gray)
+                        .padding(.top)
 
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                // Show selected files
+                List(selectedFiles, id: \.self) { file in
+                    Text(file.lastPathComponent)
+                }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .frame(width: 1200, height: 800)
+        .onDrop(of: ["public.file-url"], isTargeted: nil) { providers -> Bool in
+            guard let item = providers.first else { return false }
+            item.loadItem(forTypeIdentifier: "public.file-url", completionHandler: { (urlData, error) in
+                guard error == nil, let urlData = urlData as? Data, let url = URL(dataRepresentation: urlData, relativeTo: nil) else { return }
+                DispatchQueue.main.async {
+                    self.selectedFiles.append(url)
+                }
+            })
+            return true
+        }
     }
 }
+
 
 
 
