@@ -17,6 +17,7 @@
 		8B52B88C29AA7E2200CCEEE1 /* ManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */; };
 		8B52B89029AA89F500CCEEE1 /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */; };
 		8B52B89229AAA12F00CCEEE1 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B89129AAA12F00CCEEE1 /* FileManager.swift */; };
+		8B52B89429AAB9BA00CCEEE1 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B89329AAB9BA00CCEEE1 /* AudioFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerView.swift; sourceTree = "<group>"; };
 		8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
 		8B52B89129AAA12F00CCEEE1 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		8B52B89329AAB9BA00CCEEE1 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */,
 				8B52B89129AAA12F00CCEEE1 /* FileManager.swift */,
+				8B52B89329AAB9BA00CCEEE1 /* AudioFile.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B52B89429AAB9BA00CCEEE1 /* AudioFile.swift in Sources */,
 				8B52B88C29AA7E2200CCEEE1 /* ManagerView.swift in Sources */,
 				8B52B88629AA7C1B00CCEEE1 /* UploadView.swift in Sources */,
 				8B52B88A29AA7E1400CCEEE1 /* WaveformView.swift in Sources */,

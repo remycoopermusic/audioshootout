@@ -13,9 +13,12 @@ struct UploadView: View {
     @Binding var isUploading: Bool
     @State private var progress: Double = 0.0
 
-    init(fileManager: FileManager, isUploading: Binding<Bool>) {
+    var completion: (([URL]) -> Void)?
+
+    init(fileManager: FileManager, isUploading: Binding<Bool>, completion: (([URL]) -> Void)? = nil) {
         self._fileManager = StateObject(wrappedValue: fileManager)
         self._isUploading = isUploading
+        self.completion = completion
     }
 
     var body: some View {
@@ -64,7 +67,7 @@ struct UploadView: View {
                 List {
                     ForEach(fileManager.audioFiles, id: \.self) { file in
                         Text(file.lastPathComponent)
-                    }
+                     }
                 }
                 Button("Continue") {
                     uploadFiles()
@@ -131,7 +134,7 @@ struct UploadView: View {
         }
     }
 
-
+    
 }
 
 
