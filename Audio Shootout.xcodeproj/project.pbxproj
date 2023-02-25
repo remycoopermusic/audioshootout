@@ -15,6 +15,7 @@
 		8B52B88829AA7E0700CCEEE1 /* TracklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88729AA7E0700CCEEE1 /* TracklistView.swift */; };
 		8B52B88A29AA7E1400CCEEE1 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88929AA7E1400CCEEE1 /* WaveformView.swift */; };
 		8B52B88C29AA7E2200CCEEE1 /* ManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */; };
+		8B52B89029AA89F500CCEEE1 /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8B52B88729AA7E0700CCEEE1 /* TracklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracklistView.swift; sourceTree = "<group>"; };
 		8B52B88929AA7E1400CCEEE1 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 		8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerView.swift; sourceTree = "<group>"; };
+		8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,8 @@
 		8B52B86A29AA777900CCEEE1 = {
 			isa = PBXGroup;
 			children = (
+				8B52B88D29AA89B400CCEEE1 /* Views */,
+				8B52B88E29AA89D400CCEEE1 /* Helpers */,
 				8B52B87529AA777900CCEEE1 /* Audio Shootout */,
 				8B52B87429AA777900CCEEE1 /* Products */,
 			);
@@ -61,14 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				8B52B87629AA777900CCEEE1 /* Audio_ShootoutApp.swift */,
-				8B52B88529AA7C1B00CCEEE1 /* UploadView.swift */,
-				8B52B87829AA777900CCEEE1 /* ContentView.swift */,
-				8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */,
 				8B52B87A29AA777B00CCEEE1 /* Assets.xcassets */,
 				8B52B87F29AA777B00CCEEE1 /* Audio_Shootout.entitlements */,
 				8B52B87C29AA777B00CCEEE1 /* Preview Content */,
-				8B52B88929AA7E1400CCEEE1 /* WaveformView.swift */,
-				8B52B88729AA7E0700CCEEE1 /* TracklistView.swift */,
 			);
 			path = "Audio Shootout";
 			sourceTree = "<group>";
@@ -79,6 +78,26 @@
 				8B52B87D29AA777B00CCEEE1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B52B88D29AA89B400CCEEE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B52B88529AA7C1B00CCEEE1 /* UploadView.swift */,
+				8B52B87829AA777900CCEEE1 /* ContentView.swift */,
+				8B52B88B29AA7E2100CCEEE1 /* ManagerView.swift */,
+				8B52B88929AA7E1400CCEEE1 /* WaveformView.swift */,
+				8B52B88729AA7E0700CCEEE1 /* TracklistView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B52B88E29AA89D400CCEEE1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8B52B88F29AA89F500CCEEE1 /* FileImporter.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +176,7 @@
 				8B52B87929AA777900CCEEE1 /* ContentView.swift in Sources */,
 				8B52B88829AA7E0700CCEEE1 /* TracklistView.swift in Sources */,
 				8B52B87729AA777900CCEEE1 /* Audio_ShootoutApp.swift in Sources */,
+				8B52B89029AA89F500CCEEE1 /* FileImporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
