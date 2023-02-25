@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-class FileManager: ObservableObject {
+class FileManager: NSObject, ObservableObject {
     @Published var audioFiles: [URL] = []
     var maxFiles = 8
     
@@ -18,5 +18,9 @@ class FileManager: ObservableObject {
             }
             completion()
         }
+    }
+    
+    func removeFile(at index: IndexSet) {
+        audioFiles.remove(atOffsets: index)
     }
 }
