@@ -9,18 +9,12 @@ import SwiftUI
 
 struct UploadView: View {
     @StateObject var fileManager = FileManager()
-
+    
     var body: some View {
         VStack {
             HStack {
-                Button(action: {
-                    self.fileManager.chooseFiles {
-                        // Completion handler called after files have been chosen
-                    }
-                }) {
-                    Image(systemName: "folder.fill")
-                        .font(.system(size: 24))
-                }
+                Image(systemName: "folder.fill")
+                    .font(.system(size: 24))
                 Spacer()
                 Image(systemName: "questionmark.circle.fill")
                     .font(.system(size: 24))
@@ -28,6 +22,7 @@ struct UploadView: View {
                     .font(.system(size: 24))
             }
             .padding()
+            
 
             Spacer()
 
@@ -42,6 +37,21 @@ struct UploadView: View {
 
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onTapGesture {
+                    fileManager.chooseFiles {
+                        // do something after files are chosen
+                    }
+                }
+                .onDrop(of: ["public.file-url"], isTargeted: nil) { providers -> Bool in
+                                    guard let item = providers.first else { return false }
+                                    item.loadItem(forTypeIdentifier: "public.file-url", completionHandler: { (urlData, error) in
+                                        guard error == nil, let urlData = urlData as? Data, let url = URL(dataRepresentation: urlData, relativeTo: nil) else { return }
+                                        DispatchQueue.main.async {
+                                            fileManager.audioFiles.append(url)
+                                        }
+                                    })
+                                    return true
+                                }
             } else {
                 // Show selected files
                 List {
@@ -53,6 +63,8 @@ struct UploadView: View {
         }
     }
 }
+
+
 
 
 
