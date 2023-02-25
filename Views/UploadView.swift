@@ -49,7 +49,7 @@ struct UploadView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .onTapGesture {
                     fileManager.chooseFiles {
-                        isUploading = true
+                        isUploading = false
                     }
                 }
                 .onDrop(of: ["public.file-url"], isTargeted: nil) { providers -> Bool in

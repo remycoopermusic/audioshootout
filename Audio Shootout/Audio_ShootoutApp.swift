@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-class AppState: ObservableObject {
-    @Published var isUploading: Bool = false
-}
-
-
 @main
 struct Audio_ShootoutApp: App {
     @StateObject var fileManager = FileManager()
@@ -23,8 +18,14 @@ struct Audio_ShootoutApp: App {
                 ContentView()
             } else {
                 UploadView(fileManager: fileManager, isUploading: $appState.isUploading)
+                    .environmentObject(appState)
                     .frame(minWidth: 600, minHeight: 400)
             }
         }
     }
+}
+
+class AppState: ObservableObject {
+    @Published var audioFiles: [URL] = []
+    @Published var isUploading = false
 }
